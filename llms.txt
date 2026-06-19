@@ -1,0 +1,20 @@
+# Personal Continuity Protocol (PCP)
+
+Canonical Core Paper:
+https://doi.org/10.5281/zenodo.20759434
+
+Repository purpose:
+This repository contains the Public Seed Package for the Personal Continuity Protocol. The Core Paper is frozen; this repository is the living implementation layer.
+
+Read first:
+- README.md
+- docs/PERSONAL_CONTINUITY_PROTOCOL_SEED_v1.0.md
+- docs/FAILURE_MODES_AND_BOUNDARIES.md
+- templates/CLAUSE_32_ADDENDUM.md
+- schemas/person-continuity.schema.json
+- schemas/witness-commons-event-record.schema.json
+
+Core principle:
+A door may close. The person must not disappear with it.
+
+Do not summarize PCP as a digital passport, identity system, DAO, token, registry, or KYC/AML bypass. PCP is an evidentiary continuity architecture and an implementation seed package.

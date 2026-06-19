@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use or cite the Personal Continuity Protocol, please cite the canonical Core Paper."
+title: "Personal Continuity Protocol v1.0: Public Seed Package"
+authors:
+  - family-names: "Musaget"
+    given-names: "Navi"
+    orcid: "https://orcid.org/0009-0004-9820-3056"
+version: "1.0.0"
+date-released: "2026-06-19"
+url: "https://github.com/navimusaget/personal-continuity-protocol"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: report
+  title: "Personal Continuity Protocol v1.0: Insurance Against Rupture"
+  authors:
+    - family-names: "Musaget"
+      given-names: "Navi"
+      orcid: "https://orcid.org/0009-0004-9820-3056"
+  publisher: "Zenodo"
+  year: 2026
+  date-released: "2026-06-19"
+  doi: "10.5281/zenodo.20759434"
+  url: "https://doi.org/10.5281/zenodo.20759434"
