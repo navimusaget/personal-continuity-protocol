@@ -1,0 +1,99 @@
+{
+  "protocol": "personal-continuity-protocol",
+  "version": "1.0",
+  "profileType": "discovery_pointer",
+  "subject": {
+    "displayName": "Example Author",
+    "subjectType": "pseudonym",
+    "publicIdentifier": "https://example.org/authors/example-author",
+    "did": "did:example:123456789abcdefghi"
+  },
+  "status": {
+    "continuityState": "active",
+    "profileTemperature": "warm",
+    "lastReviewed": "2026-06-19",
+    "disputeStatus": "none"
+  },
+  "eventHandles": [
+    {
+      "handle": "pcp1:pkg:2026-06:9d2f71a4c883",
+      "handleType": "package",
+      "scope": "public example package",
+      "created": "2026-06-19T00:00:00Z"
+    },
+    {
+      "handle": "pcp1:event:2026-06-19:pkg-created:7f3a9c2e4b6d",
+      "handleType": "event",
+      "eventType": "continuity_package_created",
+      "scope": "package creation event",
+      "created": "2026-06-19T00:00:00Z"
+    }
+  ],
+  "anchors": [
+    {
+      "anchorClass": "technical",
+      "type": "evidence_bundle",
+      "uri": "https://example.org/continuity/evidence-bundle.json",
+      "hash": "sha256-REPLACE_WITH_HASH",
+      "hashAlgorithm": "sha256",
+      "timestamp": "2026-06-19T00:00:00Z",
+      "accessLevel": "public"
+    },
+    {
+      "anchorClass": "material",
+      "type": "fingerprint_sheet",
+      "uri": "offline:sealed-package:example-author-v1",
+      "hash": "sha256-REPLACE_WITH_HASH",
+      "hashAlgorithm": "sha256",
+      "timestamp": "2026-06-19T00:00:00Z",
+      "accessLevel": "private_reference"
+    },
+    {
+      "anchorClass": "witness_commons",
+      "type": "witness_record",
+      "uri": "https://example.org/witness/pcp1-event-2026-06-19-pkg-created-7f3a9c2e4b6d.json",
+      "hash": "sha256-REPLACE_WITH_HASH",
+      "hashAlgorithm": "sha256",
+      "timestamp": "2026-06-19T00:00:00Z",
+      "accessLevel": "public"
+    }
+  ],
+  "witnessRecords": [
+    {
+      "recordUri": "https://example.org/witness/pcp1-event-2026-06-19-pkg-created-7f3a9c2e4b6d.json",
+      "recordHash": "sha256-REPLACE_WITH_HASH",
+      "eventHandle": "pcp1:event:2026-06-19:pkg-created:7f3a9c2e4b6d",
+      "witnessNode": "Example Witness Node",
+      "timestamp": "2026-06-19T00:00:00Z"
+    }
+  ],
+  "policies": {
+    "clause32": "https://example.org/continuity/clause32",
+    "payeeChange": "https://example.org/continuity/payee-change-policy",
+    "lars": "https://example.org/continuity/lars-policy",
+    "emergencyMaintenance": "https://example.org/continuity/emergency-maintenance",
+    "succession": "https://example.org/continuity/succession-policy",
+    "incapacity": "https://example.org/continuity/incapacity-policy",
+    "bareBodyRecovery": "https://example.org/continuity/bare-body-recovery",
+    "blindLegacy": "https://example.org/continuity/blind-legacy"
+  },
+  "roles": {
+    "relayAgents": [
+      "relay@example.org"
+    ],
+    "validators": [
+      "validation@example.org"
+    ],
+    "witnessNodes": [
+      "Example Witness Node"
+    ]
+  },
+  "contact": {
+    "noticeEmail": "continuity@example.org",
+    "legalAgent": "legal-agent@example.org",
+    "continuitySteward": "steward@example.org",
+    "relayAgent": "relay@example.org",
+    "securityContact": "security@example.org"
+  },
+  "privacyNote": "This profile is a discovery pointer. It does not contain private keys, seed phrases, passports, medical records, full archives, raw KYC files or a full biography."
+}
