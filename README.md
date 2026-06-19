@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20761140.svg)](https://doi.org/10.5281/zenodo.20761140)
+
 # Personal Continuity Protocol (PCP)
 
 **Insurance against rupture.**
