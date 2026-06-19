@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/person-continuity.schema.json",
+  "title": "Personal Continuity Discovery Profile",
+  "description": "Minimal discovery schema for /.well-known/person-continuity. It points to continuity evidence; it must not contain the whole person.",
+  "type": "object",
+  "required": [
+    "protocol",
+    "version",
+    "profileType",
+    "subject",
+    "status",
+    "eventHandles",
+    "anchors",
+    "contact"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "personal-continuity-protocol"
+    },
+    "version": {
+      "type": "string",
+      "examples": [
+        "1.0"
+      ]
+    },
+    "profileType": {
+      "enum": [
+        "discovery_pointer",
+        "evidence_summary",
+        "public_notice"
+      ]
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "displayName",
+        "subjectType"
+      ],
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "subjectType": {
+          "enum": [
+            "person",
+            "pseudonym",
+            "role",
+            "project",
+            "estate"
+          ]
+        },
+        "publicIdentifier": {
+          "type": "string"
+        },
+        "did": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "continuityState",
+        "profileTemperature"
+      ],
+      "properties": {
+        "continuityState": {
+          "enum": [
+            "active",
+            "dormant",
+            "protected_pause",
+            "disputed",
+            "incapacity_review",
+            "succession_review",
+            "deceased_confirmed"
+          ]
+        },
+        "profileTemperature": {
+          "enum": [
+            "cold",
+            "warm",
+            "hot",
+            "frozen"
+          ]
+        },
+        "lastReviewed": {
+          "type": "string",
+          "format": "date"
+        },
+        "disputeStatus": {
+          "enum": [
+            "none",
+            "alleged",
+            "disputed",
+            "resolved",
+            "corrected",
+            "revoked"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "eventHandles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "handle",
+          "handleType"
+        ],
+        "properties": {
+          "handle": {
+            "type": "string",
+            "pattern": "^pcp1:(event|pkg):[A-Za-z0-9_.:-]+$"
+          },
+          "handleType": {
+            "enum": [
+              "event",
+              "package",
+              "profile"
+            ]
+          },
+          "eventType": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "anchorClass",
+          "type",
+          "uri",
+          "hash"
+        ],
+        "properties": {
+          "anchorClass": {
+            "enum": [
+              "material",
+              "mnemonic_reference",
+              "institutional",
+              "technical",
+              "community",
+              "platform",
+              "state",
+              "witness_commons"
+            ]
+          },
+          "type": {
+            "enum": [
+              "evidence_bundle",
+              "court_readable_pdf",
+              "fingerprint_sheet",
+              "timestamp",
+              "notarial_deposit",
+              "public_ledger_hash",
+              "ipfs",
+              "dnslink",
+              "verifiable_credential",
+              "did_document",
+              "platform_record",
+              "archive_deposit",
+              "sealed_package_reference",
+              "witness_record"
+            ]
+          },
+          "uri": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "hashAlgorithm": {
+            "type": "string",
+            "default": "sha256"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "accessLevel": {
+            "enum": [
+              "public",
+              "private_reference",
+              "sealed",
+              "legal_only"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "witnessRecords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "recordUri",
+          "recordHash"
+        ],
+        "properties": {
+          "recordUri": {
+            "type": "string"
+          },
+          "recordHash": {
+            "type": "string"
+          },
+          "eventHandle": {
+            "type": "string"
+          },
+          "witnessNode": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "policies": {
+      "type": "object",
+      "properties": {
+        "clause32": {
+          "type": "string"
+        },
+        "payeeChange": {
+          "type": "string"
+        },
+        "lars": {
+          "type": "string"
+        },
+        "emergencyMaintenance": {
+          "type": "string"
+        },
+        "succession": {
+          "type": "string"
+        },
+        "incapacity": {
+          "type": "string"
+        },
+        "bareBodyRecovery": {
+          "type": "string"
+        },
+        "blindLegacy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "roles": {
+      "type": "object",
+      "properties": {
+        "relayAgents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "validators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "witnessNodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "contact": {
+      "type": "object",
+      "required": [
+        "noticeEmail"
+      ],
+      "properties": {
+        "noticeEmail": {
+          "type": "string"
+        },
+        "legalAgent": {
+          "type": "string"
+        },
+        "continuitySteward": {
+          "type": "string"
+        },
+        "relayAgent": {
+          "type": "string"
+        },
+        "securityContact": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "privacyNote": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

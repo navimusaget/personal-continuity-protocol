@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/witness-commons-event-record.schema.json",
+  "title": "Witness Commons Event Record",
+  "description": "Minimal event record for PCP witness-commons nodes. Records events, not biographies.",
+  "type": "object",
+  "required": [
+    "protocol",
+    "recordVersion",
+    "eventHandle",
+    "eventType",
+    "eventTime",
+    "evidence"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "personal-continuity-protocol"
+    },
+    "recordVersion": {
+      "type": "string",
+      "examples": [
+        "1.0"
+      ]
+    },
+    "eventHandle": {
+      "type": "string",
+      "pattern": "^pcp1:event:[A-Za-z0-9_.:-]+$"
+    },
+    "eventType": {
+      "enum": [
+        "continuity_package_created",
+        "continuity_package_updated",
+        "material_anchor_deposited",
+        "witness_record_created",
+        "clause32_notice_sent",
+        "lars_pause_opened",
+        "lars_pause_closed",
+        "key_transition_notice",
+        "payee_change_notice",
+        "emergency_maintenance_activated",
+        "incapacity_review_opened",
+        "succession_review_opened",
+        "revocation_filed",
+        "dispute_marker_filed",
+        "dispute_resolved",
+        "public_root_checkpointed"
+      ]
+    },
+    "eventTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "subjectRef": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "publicIdentifier": {
+          "type": "string"
+        },
+        "subjectType": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "packageHash",
+        "hashAlgorithm"
+      ],
+      "properties": {
+        "packageHash": {
+          "type": "string"
+        },
+        "courtReadableHash": {
+          "type": "string"
+        },
+        "discoveryProfileHash": {
+          "type": "string"
+        },
+        "hashAlgorithm": {
+          "type": "string"
+        },
+        "packageUri": {
+          "type": "string"
+        },
+        "materialAnchorRef": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "witness": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "signatureAlgorithm": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "disputeStatus": {
+      "enum": [
+        "none",
+        "alleged",
+        "disputed",
+        "resolved",
+        "corrected",
+        "revoked"
+      ]
+    },
+    "legalMeaning": {
+      "type": "string"
+    },
+    "privacyNote": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
