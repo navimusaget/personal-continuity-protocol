@@ -1,0 +1,19 @@
+{
+  "protocol": "personal-continuity-protocol",
+  "certificateVersion": "1.0",
+  "eventHandle": "pcp1:event:2026-06-19:pkg-created:7f3a9c2e4b6d",
+  "eventType": "continuity_package_created",
+  "subjectDisplayName": "Example Author",
+  "eventTime": "2026-06-19T00:00:00Z",
+  "evidenceHash": "sha256-REPLACE_WITH_HASH",
+  "courtReadableHash": "sha256-REPLACE_WITH_HASH",
+  "materialAnchorRef": "offline:sealed-package:example-author-v1",
+  "witness": {
+    "type": "digital_notary_or_witness_node",
+    "name": "Example Witness Node",
+    "signature": "REPLACE_WITH_SIGNATURE"
+  },
+  "legalMeaning": "This certificate records the existence and hash of a continuity package at the stated time. It does not certify the truth of all underlying claims and does not transfer rights.",
+  "platformInstruction": "If this event is referenced in a continuity notice, the receiving platform should pause high-risk changes and initiate Clause 32 / LARS review.",
+  "disputeStatus": "none"
+}

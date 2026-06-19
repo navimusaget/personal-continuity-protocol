@@ -1,0 +1,29 @@
+{
+  "protocol": "personal-continuity-protocol",
+  "recordVersion": "1.0",
+  "eventHandle": "pcp1:event:2026-06-19:pkg-created:7f3a9c2e4b6d",
+  "eventType": "continuity_package_created",
+  "eventTime": "2026-06-19T00:00:00Z",
+  "subjectRef": {
+    "displayName": "Example Author",
+    "publicIdentifier": "https://example.org/authors/example-author",
+    "subjectType": "pseudonym"
+  },
+  "evidence": {
+    "packageHash": "sha256-REPLACE_WITH_HASH",
+    "courtReadableHash": "sha256-REPLACE_WITH_HASH",
+    "discoveryProfileHash": "sha256-REPLACE_WITH_HASH",
+    "hashAlgorithm": "sha256",
+    "packageUri": "https://example.org/continuity/evidence-bundle.json",
+    "materialAnchorRef": "offline:sealed-package:example-author-v1"
+  },
+  "witness": {
+    "type": "digital_notary_or_witness_node",
+    "name": "Example Witness Node",
+    "signature": "REPLACE_WITH_SIGNATURE",
+    "signatureAlgorithm": "example-signature"
+  },
+  "disputeStatus": "none",
+  "legalMeaning": "This record states that a continuity package with the listed hash existed at the stated time. It does not certify the truth of all underlying claims and does not transfer rights.",
+  "privacyNote": "This is an event record, not a biography or global person registry entry."
+}
